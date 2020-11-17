@@ -1,0 +1,16 @@
+[package]
+name = "torgap-demo"
+version = "0.1.0"
+authors = ["gorazdko <gorazdko@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+simple-server="0.4.0"
+http = "0.1.0"
+httparse = "1.2.3"
+log = "0.3"
+
+[dev-dependencies]
+env_logger = "0.3"

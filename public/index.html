@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Demo: verify object with minisign and onion address</title>
+  </head>
+<style>
+    .div-1 {
+        background-color: #EBEBEB;
+    }
+</style>
+  <body>
+    <h1>Demo: verify a text file signed by the onion service</h1>
+    <h2>Download a file and the signature</h1>
+<ul>
+    <li>First, download the <a href="object">text file</a></div>
+    <li>Next, download the <a href="signature">signature</a> of the file signed by the onion service</div>
+    <li>Finally, you can verify the signature with the onion address</div>
+</ul>
+    <h2>Verify the signature</h1>
+    <div>First clone the minisign tool: <span class="div-1">    git clone https://github.com/BlockchainCommons/torgap-sig-cli-rust.git</span><br><br>
+         Make sure you have Rust and Cargo installed: <span class="div-1">https://doc.rust-lang.org/cargo/getting-started/installation.html</span><br><br>
+         Copy the downloaded files from the previous section into <span class="div-1">torgap-sig-cli-rust</span> directory, and verify them: <br><br>
+         <span class="div-1">cd torgap-sig-cli-rust<br>
+         cargo run verify text.txt --onion-address fscst5exmlmr262byztwz4kzhggjlzumvc2ndvgytzoucr2tkgxf7mid.onion</span> <br>
+    </div>
+  </body>
+</html>
