@@ -218,11 +218,13 @@ export PATH=$HOME/.cargo/bin:$PATH
 
 ###### Install torgap-demo
 # TODO fix github URL when PR merged
+cd ~standup
 git clone https://github.com/gorazdko/torgap-demo.git
 pushd torgap-demo
 git checkout stack_script
 cargo build --release
 popd
+chown -R standup torgap-demo
 
 ###### Install torgap-sig-cli-rust to convert minisign secret key to Tor secret key
 git clone https://github.com/BlockchainCommons/torgap-sig-cli-rust.git
@@ -238,6 +240,8 @@ echo "$0 - exporting keys to Tor format"
 cargo run export-to-onion-keys -s $MINISIGN_SECRET_KEY <<< $MINISIGN_SECRET_KEY_PASSWORD
 popd
 
+chown -R standup torgap-sig-cli-rust
+
 # Setup torgap-demo as a service
 echo "$0 - Setting up torgap-demo as a systemd service."
 
@@ -251,7 +255,7 @@ Requires=tor.service
 [Service]
 Type=simple
 Restart=always
-ExecStart=$HOME/torgap-demo/target/release/torgap-demo
+ExecStart=/home/standup/torgap-demo/target/release/torgap-demo
 
 [Install]
 WantedBy=multi-user.target
@@ -259,13 +263,13 @@ WantedBy=multi-user.target
 EOF
 
 # Create a text object to be signed with MINISIGN_SECRET_KEY
-echo "This message is signed by the controller of the same private key used by $(<$TOR_HOSTNAME)" > $HOME/torgap-demo/public/text.txt 
+echo "This message is signed by the controller of the same private key used by $(<$TOR_HOSTNAME)" > ~standup/torgap-demo/public/text.txt 
 
 echo "$0 - Signing our text object with minisign secret key"
-$HOME/torgap-sig-cli-rust/target/debug/rsign sign $HOME/torgap-demo/public/text.txt -s "$MINISIGN_SECRET_KEY" -t $(<$TOR_HOSTNAME) <<< $MINISIGN_SECRET_KEY_PASSWORD
+~standup/torgap-sig-cli-rust/target/debug/rsign sign ~standup/torgap-demo/public/text.txt -s "$MINISIGN_SECRET_KEY" -t $(<$TOR_HOSTNAME) <<< $MINISIGN_SECRET_KEY_PASSWORD
 
 # set our onion address in our index.html
-sed -i -e "s/cargo run verify text.txt.*/cargo run verify text.txt --onion-address $(<$TOR_HOSTNAME) /g" $HOME/torgap-demo/public/index.html
+sed -i -e "s/cargo run verify text.txt.*/cargo run verify text.txt --onion-address $(<$TOR_HOSTNAME) /g" ~standup/torgap-demo/public/index.html
 
 ####
 # 5. Install latest stable tor
