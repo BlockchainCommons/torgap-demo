@@ -4,7 +4,7 @@ Demonstration of objects signed and offered by an onion service.
 
 ## Installation
 
-To install `torgap-demo` on a Debian server you can run a [stack script](StackScript/torgap-demo.sh):
+To install `torgap-demo` on a Linode Debian server you can run a [StackScript](StackScript/torgap-demo.sh):
 
 It will set up the `torgap-demo` behind an onion service.
 You can see this example: `http://fscst5exmlmr262byztwz4kzhggjlzumvc2ndvgytzoucr2tkgxf7mid.onion/`
