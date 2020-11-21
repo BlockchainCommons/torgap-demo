@@ -1,17 +1,16 @@
 #!/bin/bash
 
-#  torgap-demo.sh - Installs torgap-demo behind a tor address derived from a minisign secret key.
-#                   Onion service then offers to download and verify a signed text file.
+#  torgap-demo.sh - Installs torgap-demo behind a tor address derived from a minisign secret key
+#  Key conversion is made by torgap-sig-cli-rust.
+#  Once set up, onion service offers to download and verify a signed text file.
 #
 #  Created by @gorazdko 2020-11-19
-#  
-#  url: https://github.com/BlockchainCommons/torgap-demo
-#  
+#
+#  https://github.com/BlockchainCommons/torgap-demo
+#  https://github.com/BlockchainCommons/torgap-sig-cli-rust
+#
 #  Based on LinodeStandUp.sh by Peter Denton
 #  source: https://github.com/BlockchainCommons/Bitcoin-Standup-Scripts/blob/master/Scripts/LinodeStandUp.sh
-#
-#
-
 
 
 # It is highly recommended to add a Tor V3 pubkey for cookie authentication.
@@ -34,10 +33,6 @@
 # This block defines the variables the user of the script needs to input
 # when deploying using this script.
 #
-# <UDF name="hostname" label="Short Hostname" example="Example: bitcoincore-testnet-pruned"/>
-# HOSTNAME=
-# <UDF name="fqdn" label="Fully Qualified Hostname" example="Example: bitcoincore-testnet-pruned.local or bitcoincore-testnet-pruned.domain.com"/>
-# FQDN=
 # <UDF name="torV3AuthKey" Label="x25519 Public Key" default="" example="descriptor:x25519:JBFKJBEUF72387RH2UHDJFHIUWH47R72UH3I2UHD" optional="true"/>
 # PUBKEY=
 # <UDF name="userpassword" label="StandUp Password" example="Password to for the standup non-privileged account." />
@@ -53,9 +48,6 @@
 # <UDF name="minisign_secret_key_password" label="Password of/for Minisign Secret Key." default="" example="Password used to encrypt/decrypt minisign secret key" optional="true" />
 # MINISIGN_SECRET_KEY_PASSWORD=
 
-
-# last_char_index = original_string.rfind(".")
-# new_string = original_string[:last_char_index] + "," + original_string[last_char_index+1:]
 
 TOR_SECRET_KEY=/home/standup/.rsign/hs_ed25519_secret_key
 TOR_PUBLIC_KEY=/home/standup/.rsign/hs_ed25519_public_key
@@ -75,27 +67,6 @@ fi
 
 # Output stdout and stderr to ~root files
 exec > >(tee -a /root/standup.log) 2> >(tee -a /root/standup.log /root/standup.err >&2)
-
-
-####
-# 1. Update Hostname
-####
-
-echo $HOSTNAME > /etc/hostname
-/bin/hostname $HOSTNAME
-
-# Set the variable $IPADDR to the IP address the new Linode receives.
-IPADDR=`hostname -I | awk '{print $1}'`
-
-echo "$0 - Set hostname as $FQDN ($IPADDR)"
-echo "$0 - TODO: Put $FQDN with IP $IPADDR in your main DNS file."
-
-# Add localhost aliases
-
-echo "127.0.0.1    localhost" > /etc/hosts
-echo "127.0.1.1 $FQDN $HOSTNAME" >> /etc/hosts
-
-echo "$0 - Set localhost"
 
 ####
 # 2. Update Timezone
@@ -323,7 +294,7 @@ cp $TOR_SECRET_KEY /var/lib/tor/torgap-demo/hs_ed25519_secret_key
 cp $TOR_PUBLIC_KEY /var/lib/tor/torgap-demo/hs_ed25519_public_key
 cp $TOR_HOSTNAME /var/lib/tor/torgap-demo/hostname
 
-# Add standup to the tor group so that the tor authentication cookie can be read by bitcoind
+# Add standup to the tor group
 sudo usermod -a -G debian-tor standup
 
 echo "$0 - Starting torgap-demo service"
