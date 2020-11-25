@@ -7,10 +7,12 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-simple-server="0.4.0"
-http = "0.1.0"
-httparse = "1.2.3"
-log = "0.3"
+#log = "0.3"
+# http deps
+#tokio = { version = "0.2.23", features = ["full"], optional = true }
+#warp = { version = "0.2.5", optional = true }
+pretty_env_logger = "0.4"
+tokio = { version = "0.2", features = ["full"] }
+warp = "0.2"
 
 [dev-dependencies]
-env_logger = "0.3"
