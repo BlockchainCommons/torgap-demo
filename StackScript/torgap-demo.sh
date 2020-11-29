@@ -188,11 +188,9 @@ export PATH=$HOME/.cargo/bin:$PATH
 
 
 ###### Install torgap-demo
-# TODO fix github URL when PR merged
 cd ~standup
-git clone https://github.com/gorazdko/torgap-demo.git
+git clone https://github.com/BlockchainCommons/torgap-demo.git
 pushd torgap-demo
-git checkout stack_script
 cargo build --release
 popd
 chown -R standup torgap-demo
@@ -206,6 +204,10 @@ then
    cargo run generate -s $MINISIGN_SECRET_KEY <<< $MINISIGN_SECRET_KEY_PASSWORD <<< $MINISIGN_SECRET_KEY_PASSWORD
    echo "$0 - minisign secret key generated"
 fi
+
+# generate DID document and expose it on our server
+cargo run generate-did -s $MINISIGN_SECRET_KEY <<< $MINISIGN_SECRET_KEY_PASSWORD
+cp ~standup/.rsign/did.json ~standup/torgap-demo/public/.well-known/did.json
 
 echo "$0 - exporting keys to Tor format"
 cargo run export-to-onion-keys -s $MINISIGN_SECRET_KEY <<< $MINISIGN_SECRET_KEY_PASSWORD
@@ -283,7 +285,7 @@ sed -i -e 's/## address y:z./## address y:z.\
 \
 HiddenServiceDir \/var\/lib\/tor\/torgap-demo\/\
 HiddenServiceVersion 3\
-HiddenServicePort 80 127.0.0.1:5556/g' /etc/tor/torrc
+HiddenServicePort 80 127.0.0.1:5557/g' /etc/tor/torrc
 
 mkdir /var/lib/tor/torgap-demo
 chown -R debian-tor:debian-tor /var/lib/tor/torgap-demo
@@ -325,7 +327,7 @@ then
 
 else
 
-  echo "$0 - No Tor V3 authentication, anyone who gets access may control your service"
+  echo "$0 - No Tor V3 authentication, anyone who gets access may see your service"
 
 fi
 
