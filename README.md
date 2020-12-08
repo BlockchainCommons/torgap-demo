@@ -1,4 +1,5 @@
 # Blockchain Commons torgap-demo
+### _by Gorazd Kovacic and Christopher Allen_
 
 Demonstration of objects signed and offered by an onion service.
 
