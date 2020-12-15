@@ -1,6 +1,6 @@
 # Blockchain Commons torgap-demo
-* <img src="https://raw.githubusercontent.com/BlockchainCommons/torgap/master/images/logos/torgap.png" width=30 valign="bottom"> ***part of the [torgap](https://github.com/BlockchainCommons/torgap/blob/master/README.md) technology family***
 ### _by [Gorazd Kovacic](https://github.com/gorazd) and [Christopher Allen](https://github.com/ChristopherA)_
+* <img src="https://raw.githubusercontent.com/BlockchainCommons/torgap/master/images/logos/torgap.png" width=30 valign="bottom"> ***part of the [torgap](https://github.com/BlockchainCommons/torgap/blob/master/README.md) technology family***
 
 Demonstration of objects signed and offered by an onion service.
 
