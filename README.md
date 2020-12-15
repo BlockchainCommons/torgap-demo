@@ -1,6 +1,6 @@
 # Blockchain Commons torgap-demo
 ## Part of the [Torgap](https://github.com/BlockchainCommons/torgap/blob/master/README.md) Technology Family
-### _by [Gorazd Kovacic](@gorazd) and [Christopher Allen](@ChristopherA)
+### _by [Gorazd Kovacic](https://github.com/gorazd) and [Christopher Allen](https://github.com/ChristopherA)_
 
 Demonstration of objects signed and offered by an onion service.
 
