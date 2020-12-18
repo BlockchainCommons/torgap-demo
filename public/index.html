@@ -1,30 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Demo: verify object with minisign and onion address</title>
-  </head>
+
+<head>
+	<meta charset="utf-8">
+	<title>Demo: verify object with minisign and onion address</title>
+</head>
 <style>
-    .div-1 {
-        background-color: #EBEBEB;
-    }
+	.div-1 {
+		background-color: #EBEBEB;
+	}
 </style>
-  <body>
-    <h1>Demo: verify a text file signed by the onion service</h1>
-    <h2>DID document</h1>
-    <div>DID document can be found <a href=".well-known/did.json">here</a></div>
-    <h2>Download a file and the signature</h1>
-<ul>
-    <li>First, download the <a href="text.txt">text file</a></li>
-    <li>Next, download the <a href="text.txt.minisig">signature</a> of the file signed by the onion service</li>
-    <li>Finally, you can verify the signature with the onion address</li>
-</ul>
-    <h2>Verify the signature</h1>
-    <div>First clone the minisign tool: <span class="div-1">    git clone https://github.com/BlockchainCommons/torgap-sig-cli-rust.git</span><br><br>
-         Make sure you have Rust and Cargo installed: <span class="div-1">https://doc.rust-lang.org/cargo/getting-started/installation.html</span><br><br>
-         Copy the downloaded files from the previous section into <span class="div-1">torgap-sig-cli-rust</span> directory, and verify them: <br><br>
-         <span class="div-1">cd torgap-sig-cli-rust<br>
-         cargo run verify text.txt --onion-address fscst5exmlmr262byztwz4kzhggjlzumvc2ndvgytzoucr2tkgxf7mid.onion</span> <br>
-    </div>
-  </body>
+
+<body>
+	<h1>Demo: verify a text file signed by the onion service</h1>
+	<h2>Abstract</h2>
+	<div>Besides the signing demonstration of the onion service, this service also contains a
+		DID document which can be found <a href=".well-known/did.json">here</a>.</br>
+		You can automatically install this service with a StackScript which can be found at
+		<a href="https://github.com/BlockchainCommons/torgap-demo">https://github.com/BlockchainCommons/torgap-demo</a>
+	</div>
+	<h2>Download a file and the signature</h2>
+	<ul>
+		<li>First, download the <a href="text.txt">text file</a></li>
+		<li>Next, download the <a href="text.txt.minisig">signature</a> of the file signed by the onion service</li>
+		<li>Finally, you can verify the signature with the onion address</li>
+	</ul>
+	<h2>Verify the signature</h2>
+	<div>1) First, clone the minisign tool: <span class="div-1"> git clone https://github.com/BlockchainCommons/torgap-sig-cli-rust.git</span><br><br>
+		2) Make sure you have Rust and Cargo installed: <span class="div-1">https://doc.rust-lang.org/cargo/getting-started/installation.html</span><br><br>
+		3) Copy the downloaded files from the previous section into <span class="div-1">torgap-sig-cli-rust</span> directory, and verify them: <br><br>
+		<div style="margin-left: 30px;">
+			<span class="div-1">cd torgap-sig-cli-rust<br>
+				<!-- Don't change the next line as it's overwritten by the StackScript -->
+				cargo run verify text.txt --onion-address fscst5exmlmr262byztwz4kzhggjlzumvc2ndvgytzoucr2tkgxf7mid.onion</span> <br>
+		</div>
+	</div>
+
+	<h2>Timestamp the signature</h2>
+	<p>Additionally, you can choose to timestamp the signature and verify its timestamp with OpenTimestamps. A timestamp for <a href="text.txt.minisig">our signature</a> is already
+		provided <a href="text.txt.minisig.ots">here</a>.<br />
+		You can take both files to our torgapped OpenTimestamp service and try to verify the timestamp at
+
+		<a href="http://3xcaaswwserqnox56z7d7wifwyxm2jsdv4fniffym5jwncqx3qr7uzid.onion/">http://3xcaaswwserqnox56z7d7wifwyxm2jsdv4fniffym5jwncqx3qr7uzid.onion/</a>
+	</p>
+	<br /><br />
+	<p>Powered by:</p>
+	<img src="blockchain-commons-logo.png" alt="Blockchain Commons">
+</body>
+
 </html>
