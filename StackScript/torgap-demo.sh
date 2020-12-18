@@ -244,6 +244,12 @@ echo "$0 - Signing our text object with minisign secret key"
 # set our onion address in our index.html
 sed -i -e "s/cargo run verify text.txt.*/cargo run verify text.txt --onion-address $(<$TOR_HOSTNAME) /g" ~standup/torgap-demo/public/index.html
 
+# Make a timestamp of our signature with OpenTimestamps
+sudo apt-get install -y python3 python3-dev python3-pip python3-setuptools python3-wheel
+pip3 install opentimestamps-client
+rm ~standup/torgap-demo/public/text.txt.minisig.ots
+ots stamp ~standup/torgap-demo/public/text.txt.minisig
+
 ####
 # 5. Install latest stable tor
 ####
