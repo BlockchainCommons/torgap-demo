@@ -9,7 +9,7 @@ Demonstration of objects signed and offered by an onion service.
 To install `torgap-demo` on a Linode Debian server you can run a [StackScript](StackScript/torgap-demo.sh):
 
 It will set up the `torgap-demo` behind an onion service.
-You can see this example: `http://fscst5exmlmr262byztwz4kzhggjlzumvc2ndvgytzoucr2tkgxf7mid.onion/`
+You can see this example: [`http://fscst5exmlmr262byztwz4kzhggjlzumvc2ndvgytzoucr2tkgxf7mid.onion/`](http://fscst5exmlmr262byztwz4kzhggjlzumvc2ndvgytzoucr2tkgxf7mid.onion/)
 
 *Note:* You can generate a `minisign secret key` with https://github.com/BlockchainCommons/torgap-sig-cli-rust
 or any other [minisign implementation](https://jedisct1.github.io/minisign/)
