@@ -6,7 +6,7 @@
     }
   ],
   "id": "did:onion:fscst5exmlmr262byztwz4kzhggjlzumvc2ndvgytzoucr2tkgxf7mid",
-  "VerificationMethod": [
+  "verificationMethod": [
     {
       "id": "#g7r2t9G8dBBnG7yZkD8sly3ImDlrntB25s2pGuaD97E",
       "type": "JsonWebKey2020",
@@ -34,9 +34,9 @@
       "publicKeyBase58": "3zni9pmFAWvFvuGCnnMVSRxYkjv5gkFMKsMsAtqX1SJq"
     }
   ],
-  "authentication": "#g7r2t9G8dBBnG7yZkD8sly3ImDlrntB25s2pGuaD97E",
-  "assertionMethod": "#iFPG3dtLcg-0jI4CVa9b94g06KadgrpM8rC9EMI94nA",
-  "capabilityInvocation": "#g7r2t9G8dBBnG7yZkD8sly3ImDlrntB25s2pGuaD97E",
-  "capabilityDelegation": "#g7r2t9G8dBBnG7yZkD8sly3ImDlrntB25s2pGuaD97E",
-  "keyAgreement": "#5CRqmSH-XbX2V1qysBH0vPWzgveQEZObyOrAiaOY9U8"
+  "authentication": ["#g7r2t9G8dBBnG7yZkD8sly3ImDlrntB25s2pGuaD97E"],
+  "assertionMethod": ["#iFPG3dtLcg-0jI4CVa9b94g06KadgrpM8rC9EMI94nA"],
+  "capabilityInvocation": ["#g7r2t9G8dBBnG7yZkD8sly3ImDlrntB25s2pGuaD97E"],
+  "capabilityDelegation": ["#g7r2t9G8dBBnG7yZkD8sly3ImDlrntB25s2pGuaD97E"],
+  "keyAgreement": ["#5CRqmSH-XbX2V1qysBH0vPWzgveQEZObyOrAiaOY9U8"]
 }
