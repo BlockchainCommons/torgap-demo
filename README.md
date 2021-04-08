@@ -34,18 +34,6 @@ To build  `torgap-demo` you'll need to use the following tools:
 
 [Rust and Cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html)
 
-### Derived from…
-
-This  `torgap-demo` project is either derived from or was inspired by:
-
-- [community/repo-name/](https://github.com/community/repo-name) — Repo that does what, by [developer](https://github.com/developer)  or from  [community](https://community.com).
-
-### Used with…
-
-These are other projects that work with or leverage `torgap-demo`:
-
-- [community/repo-name/](https://github.com/community/repo-name) — Repo that does what, by [developer](https://github.com/developer)  or from  [community](https://community.com).
-
 ## Financial Support
 
 `torgap-demo` is a project of [Blockchain Commons](https://www.blockchaincommons.com/). We are proudly a "not-for-profit" social benefit corporation committed to open source & open development. Our work is funded entirely by donations and collaborative partnerships with people like you. Every contribution will be spent on building open tools, technologies, and techniques that sustain and advance blockchain and internet security infrastructure and promote an open web.
